@@ -1,9 +1,8 @@
 { lib, config, ... }:
 let
   inherit (lib)
-    mkOption
     types
-    literalExpression
+    recursiveUpdate
     ;
 in
 {
@@ -20,26 +19,28 @@ in
   };
 
   config = {
-    nixosConfigurations = config.hostConfigurations // {
+    nixosConfigurations = recursiveUpdate {
       # This is a workaround to avoid the `nixosConfigurations` being empty.
       # It will be populated by the `hostConfigurations` option.
       default = { };
-    };
-    nixosModules = config.hostModules // {
+    } config.hostConfigurations;
+
+    nixosModules = recursiveUpdate {
       # This is a workaround to avoid the `nixosModules` being empty.
       # It will be populated by the `hostModules` option.
       default = { };
-    };
+    } config.hostModules;
 
-    darwinConfigurations = config.hostConfigurations // {
+    darwinConfigurations = recursiveUpdate {
       # This is a workaround to avoid the `darwinConfigurations` being empty.
       # It will be populated by the `hostConfigurations` option.
       default = { };
-    };
-    darwinModules = config.hostModules // {
+    } config.hostConfigurations;
+
+    darwinModules = recursiveUpdate {
       # This is a workaround to avoid the `darwinModules` being empty.
       # It will be populated by the `hostModules` option.
       default = { };
-    };
+    } config.hostModules;
   };
 }
