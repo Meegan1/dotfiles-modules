@@ -5,22 +5,59 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    # Nix Darwin
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs =
-    inputs@{
-      nix-darwin,
-      ...
-    }:
-    {
-      darwinConfigurations.darwin = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./hosts/darwin/configuration.nix
+    inputs@{ flake-parts, home-manager, ... }:
+    # https://flake.parts/module-arguments.html
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      top@{
+        config,
+        withSystem,
+        moduleWithSystem,
+        ...
+      }:
+      {
+        imports = [
+          home-manager.flakeModules.home-manager
         ];
-        specialArgs = { inherit inputs; };
-      };
-    };
+
+        flake =
+          {
+            lib,
+            flake-parts-lib,
+            ...
+          }:
+          {
+            imports = [
+              ./modules/host-config.nix
+              ./modules/devenv
+            ];
+          };
+
+        systems = [
+          # systems for which you want to build the `perSystem` attributes
+          "x86_64-linux"
+          "aarch64-darwin"
+        ];
+        perSystem =
+          {
+            config,
+            pkgs,
+            system,
+            ...
+          }:
+          {
+            # Recommended: move all package definitions here.
+            # e.g. (assuming you have a nixpkgs input)
+            # packages.foo = pkgs.callPackage ./foo/package.nix { };
+            # packages.bar = pkgs.callPackage ./bar/package.nix {
+            #   foo = config.packages.foo;
+            # };
+          };
+      }
+    );
 }

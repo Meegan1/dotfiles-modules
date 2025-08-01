@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  hostConfigurations.default.environment.systemPackages = with pkgs; [
     devenv
   ];
 }
