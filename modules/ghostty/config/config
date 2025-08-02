@@ -1,0 +1,42 @@
+command = "/bin/zsh -c tmux"
+
+# https://github.com/ghostty-org/ghostty/blob/0306c592a7dbaa394da481ab2219b3bcd2b8b48f/src/input/KeyEncoder.zig#L806-L833
+# https://www.ascii-code.com/
+# https://www3.rocketsoftware.com/bluezone/help/v42/en/bzadmin/APPENDIX_C/ASCII_Character_Set.htm
+keybind = cmd+.=csi:46;5u
+keybind = cmd+b=csi:98;5u
+keybind = cmd+f=csi:102;5u
+keybind = cmd+g=csi:103;5u
+keybind = cmd+j=csi:106;5u
+keybind = cmd+l=csi:108;5u
+keybind = cmd+p=csi:112;5u
+keybind = cmd+s=csi:115;5u
+keybind = cmd+t=csi:116;5u
+keybind = cmd+w=csi:119;5u
+keybind = cmd+z=csi:122;5u
+
+keybind = cmd+shift+f=csi:102;6u
+keybind = cmd+shift+g=csi:103;6u
+keybind = cmd+shift+l=csi:108;6u
+keybind = cmd+shift+p=csi:112;6u
+keybind = cmd+shift+t=csi:116;6u
+keybind = cmd+shift+z=csi:122;6u
+keybind = shift+tab=csi:9;2u
+
+keybind = cmd+alt+f=csi:102;7u
+
+# Enable the # key on the mac keyboard
+keybind = alt+three=text:#
+
+# Use the macos option key as the alt key
+macos-option-as-alt = true
+
+theme = catppuccin-macchiato
+
+font-family = "Monaspace Neon"
+font-size = 12
+
+window-padding-x = 0
+window-padding-y = 0
+
+auto-update = off

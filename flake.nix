@@ -23,19 +23,42 @@
       {
         imports = [
           home-manager.flakeModules.home-manager
+          ./modules/darwin.nix
+          ./modules/host-config.nix
         ];
 
         flake =
+          { config, ... }:
           {
-            lib,
-            flake-parts-lib,
-            ...
-          }:
-          {
-            imports = [
-              ./modules/host-config.nix
-              ./modules/devenv
-            ];
+            # Import all ${dir}/default.nix in ./modules
+            imports = builtins.map (dir: ./modules + "/${dir}") (
+              builtins.filter (name: (builtins.readDir ./modules)."${name}" == "directory") (
+                builtins.attrNames (builtins.readDir ./modules)
+              )
+            );
+
+            hostModules.default = {
+              imports = with config.hostModules; [
+                ghostty
+                podman
+                rust
+                tmate
+              ];
+            };
+
+            darwinModules.default = {
+              imports = with config.darwinModules; [
+                capslock-delay
+                touch-id
+              ];
+            };
+
+            homeModules.default = {
+              imports = with config.homeModules; [
+                devenv
+                ghostty
+              ];
+            };
           };
 
         systems = [

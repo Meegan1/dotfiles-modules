@@ -1,0 +1,127 @@
+# create a modal keybinding to activate windowmode
+:: windowmode
+ctrl - s ; windowmode
+windowmode < escape ; default
+
+# space commands
+## create space modal
+:: spacemode
+alt - s ; spacemode
+spacemode < escape ; default
+
+# focus window
+windowmode < h : skhd -k "escape"; yabai -m window --focus west || yabai -m display --focus west
+windowmode < j : skhd -k "escape"; yabai -m window --focus south
+windowmode < k : skhd -k "escape"; yabai -m window --focus north
+windowmode < l : skhd -k "escape"; yabai -m window --focus east || yabai -m display --focus east
+
+cmd - h : skhd -k "escape"; yabai -m window --focus west || yabai -m display --focus west
+cmd - j : skhd -k "escape"; yabai -m window --focus south
+cmd - k : skhd -k "escape"; yabai -m window --focus north
+cmd - l : skhd -k "escape"; yabai -m window --focus east || yabai -m display --focus east
+
+
+## focus space
+windowmode < alt - h : skhd -k "escape"; yabai -m space --focus prev
+windowmode < alt - l : skhd -k "escape"; yabai -m space --focus next
+
+# swap windows
+windowmode < shift - h : skhd -k "escape"; yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+windowmode < shift - j : skhd -k "escape"; yabai -m window --swap south
+windowmode < shift - k : skhd -k "escape"; yabai -m window --swap north
+windowmode < shift - l : skhd -k "escape"; yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+cmd +  shift - h : skhd -k "escape"; yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+cmd +  shift - j : skhd -k "escape"; yabai -m window --swap south
+cmd +  shift - k : skhd -k "escape"; yabai -m window --swap north
+cmd +  shift - l : skhd -k "escape"; yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# resize windows
+spacemode < h : yabai -m window --resize right:-20:0 2> /dev/null || yabai -m window --resize left:-20:0 2> /dev/null
+spacemode < j : yabai -m window --resize bottom:0:20 2> /dev/null || yabai -m window --resize top:0:20 2> /dev/null
+spacemode < k : yabai -m window --resize bottom:0:-20 2> /dev/null || yabai -m window --resize top:0:-20 2> /dev/null
+spacemode < l : yabai -m window --resize right:20:0 2> /dev/null || yabai -m window --resize left:20:0 2> /dev/null
+
+# move window
+windowmode < shift + alt - h : skhd -k "escape"; yabai -m window --space west
+windowmode < shift + alt - l : skhd -k "escape"; yabai -m window --space east
+
+# toggle window float
+windowmode < t : skhd -k "escape"; yabai -m window --toggle float
+
+# toggle window fullscreen
+windowmode < f : skhd -k "escape"; yabai -m window --toggle zoom-fullscreen
+
+# toggle sticky 
+windowmode < s : skhd -k "escape"; yabai -m window --toggle sticky
+
+# balance windows
+windowmode < b : skhd -k "escape"; yabai -m space --balance
+
+
+# move window to space #
+windowmode < shift - 1 : skhd -k "escape"; yabai -m window --space 1; sketchybar --trigger space_windows_change
+windowmode < shift - 2 : skhd -k "escape"; yabai -m window --space 2; sketchybar --trigger space_windows_change
+windowmode < shift - 3 : skhd -k "escape"; yabai -m window --space 3; sketchybar --trigger space_windows_change
+windowmode < shift - 4 : skhd -k "escape"; yabai -m window --space 4; sketchybar --trigger space_windows_change
+windowmode < shift - 5 : skhd -k "escape"; yabai -m window --space 5; sketchybar --trigger space_windows_change
+windowmode < shift - 6 : skhd -k "escape"; yabai -m window --space 6; sketchybar --trigger space_windows_change
+windowmode < shift - 7 : skhd -k "escape"; yabai -m window --space 7; sketchybar --trigger space_windows_change
+windowmode < shift - 8 : skhd -k "escape"; yabai -m window --space 8; sketchybar --trigger space_windows_change
+windowmode < shift - 9 : skhd -k "escape"; yabai -m window --space 9; sketchybar --trigger space_windows_change
+windowmode < shift - 0 : skhd -k "escape"; yabai -m window --space 10; sketchybar --trigger space_windows_change
+
+cmd + shift - 1 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 1; yabai -m space --focus 1; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 2 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 2; yabai -m space --focus 2; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 3 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 3; yabai -m space --focus 3; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 4 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 4; yabai -m space --focus 4; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 5 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 5; yabai -m space --focus 5; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 6 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 6; yabai -m space --focus 6; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 7 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 7; yabai -m space --focus 7; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 8 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 8; yabai -m space --focus 8; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 9 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 9; yabai -m space --focus 9; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 0 : window=$(yabai -m query --windows --window | jq '.id'); yabai -m window --space 10; yabai -m space --focus 10; yabai -m window --focus $window; sketchybar --trigger space_windows_change
+
+
+## Swap spaces
+spacemode < shift - h : skhd -k "escape"; yabai -m space --move prev; sketchybar --trigger space_windows_change; sketchybar --trigger space_change
+spacemode < shift - l : skhd -k "escape"; yabai -m space --move next; sketchybar --trigger space_windows_change; sketchybar --trigger space_change
+
+
+## focus space #
+windowmode, spacemode < 1 : skhd -k "escape"; yabai -m space --focus 1
+windowmode, spacemode < 2 : skhd -k "escape"; yabai -m space --focus 2
+windowmode, spacemode < 3 : skhd -k "escape"; yabai -m space --focus 3
+windowmode, spacemode < 4 : skhd -k "escape"; yabai -m space --focus 4
+windowmode, spacemode < 5 : skhd -k "escape"; yabai -m space --focus 5
+windowmode, spacemode < 6 : skhd -k "escape"; yabai -m space --focus 6
+windowmode, spacemode < 7 : skhd -k "escape"; yabai -m space --focus 7
+windowmode, spacemode < 8 : skhd -k "escape"; yabai -m space --focus 8
+windowmode, spacemode < 9 : skhd -k "escape"; yabai -m space --focus 9
+windowmode, spacemode < 0 : skhd -k "escape"; yabai -m space --focus 10
+
+cmd - 1 : skhd -k "escape"; yabai -m space --focus 1
+cmd - 2 : skhd -k "escape"; yabai -m space --focus 2
+cmd - 3 : skhd -k "escape"; yabai -m space --focus 3
+cmd - 4 : skhd -k "escape"; yabai -m space --focus 4
+cmd - 5 : skhd -k "escape"; yabai -m space --focus 5
+cmd - 6 : skhd -k "escape"; yabai -m space --focus 6
+cmd - 7 : skhd -k "escape"; yabai -m space --focus 7
+cmd - 8 : skhd -k "escape"; yabai -m space --focus 8
+cmd - 9 : skhd -k "escape"; yabai -m space --focus 9
+cmd - 0 : skhd -k "escape"; yabai -m space --focus 10
+
+
+## create new space + focus
+windowmode, spacemode < c : skhd -k "escape"; yabai -m space --create && \
+  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+  yabai -m space --focus "$index"
+
+## create new space, move window + focus
+windowmode, spacemode < shift - c : skhd -k "escape"; yabai -m space --create && \
+  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+  yabai -m window --space "$index" && \
+  yabai -m space --focus "$index"
+
+## destroy space
+windowmode, spacemode < x : skhd -k "escape"; yabai -m space --destroy
