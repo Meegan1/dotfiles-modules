@@ -22,13 +22,10 @@
 
   homeModules.sketchybar =
     { pkgs, config, ... }:
-    let
-      inherit (config.lib.file) mkOutOfStoreSymlink;
-    in
     {
       home.file = {
         ".config/sketchybar" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/sketchybar/config";
+          source = ./config;
         };
         ".local/share/sketchybar_lua/sketchybar.so" = {
           source = "${

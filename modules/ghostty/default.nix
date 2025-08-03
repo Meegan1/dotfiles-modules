@@ -22,14 +22,11 @@
 
   homeModules.ghostty =
     { config, ... }:
-    let
-      inherit (config.lib.file) mkOutOfStoreSymlink;
-    in
     {
 
       home.file = {
         ".config/ghostty" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/ghostty/config";
+          source = ./config;
         };
       };
     };
