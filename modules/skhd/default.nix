@@ -13,7 +13,7 @@
     {
       home.file = {
         ".config/skhd/skhdrc" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/darwin/modules/skhd/config/skhdrc";
+          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/skhd/config/skhdrc";
         };
       };
     };

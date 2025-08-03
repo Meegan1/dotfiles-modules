@@ -28,7 +28,7 @@
     {
       home.file = {
         ".config/sketchybar" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/darwin/modules/sketchybar/config";
+          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/sketchybar/config";
         };
         ".local/share/sketchybar_lua/sketchybar.so" = {
           source = "${

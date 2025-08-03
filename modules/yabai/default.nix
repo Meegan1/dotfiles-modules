@@ -13,7 +13,7 @@
     {
       home.file = {
         ".config/yabai/yabairc" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/darwin/modules/yabai/config/yabairc";
+          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/yabai/config/yabairc";
           # executable = true;
         };
       };

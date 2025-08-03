@@ -29,7 +29,7 @@
 
       home.file = {
         ".config/ghostty" = {
-          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/darwin/modules/ghostty/config";
+          source = mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/ghostty/config";
         };
       };
     };
