@@ -8,10 +8,17 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager.url = "github:nix-community/home-manager";
+
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs =
-    inputs@{ flake-parts, home-manager, ... }:
+    inputs@{
+      flake-parts,
+      home-manager,
+      nix-homebrew,
+      ...
+    }:
     # https://flake.parts/module-arguments.html
     flake-parts.lib.mkFlake { inherit inputs; } (
       top@{
@@ -25,6 +32,7 @@
           home-manager.flakeModules.home-manager
           ./modules/darwin.nix
           ./modules/host-config.nix
+          ./modules/legacy.nix
         ];
 
         flake =
@@ -48,6 +56,9 @@
 
             darwinModules.default = {
               imports = with config.darwinModules; [
+                nix-homebrew.darwinModules.nix-homebrew
+                home-manager.darwinModules.home-manager
+                legacy
                 capslock-delay
                 touch-id
                 pf-redirect

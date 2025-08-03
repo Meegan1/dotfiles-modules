@@ -12,7 +12,7 @@
         dotDir = ".config/zsh";
         shellAliases = {
           nix = "noglob nix";
-          switch = "noglob sudo darwin-rebuild switch --flake ~/dotfiles#macbook";
+          switch = "noglob sudo darwin-rebuild switch --flake ~/dotfiles#macos";
           garbage-collect = "noglob nix-collect-garbage -d";
           update = "noglob nix flake update --flake ~/dotfiles";
         };
