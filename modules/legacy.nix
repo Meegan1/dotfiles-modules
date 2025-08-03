@@ -199,5 +199,37 @@
           onActivation.upgrade = true;
         };
       };
+
+    homeModules.legacy =
+      { config, ... }:
+      {
+        # Let Home Manager install and manage itself.
+        programs.home-manager.enable = true;
+
+        home.packages = [
+          pkgs.pam-reattach
+          pkgs.gitleaks
+          pkgs.imagemagick
+          pkgs.ghostscript
+        ];
+
+        home.sessionPath = [
+          "${config.home.homeDirectory}/.bin" # Add a custom bin directory
+          "${config.home.homeDirectory}/.local/bin" # Add a custom bin directory
+          "/opt/homebrew/bin"
+        ];
+
+        home.sessionVariables = {
+          VISUAL = "nvim";
+          EDTIOR = "${config.home.sessionVariables.VISUAL}";
+          GIT_EDITOR = "${config.home.sessionVariables.VISUAL}";
+          # Set the SSH_AUTH_SOCK to the 1Password agent
+          SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+          # Stop teleport from adding keys to the agent
+          TELEPORT_ADD_KEYS_TO_AGENT = "no";
+          XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+        };
+
+      };
   };
 }

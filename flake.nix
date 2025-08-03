@@ -67,6 +67,7 @@
 
             homeModules.default = {
               imports = with config.homeModules; [
+                legacy
                 devenv
                 ghostty
                 ast-grep
