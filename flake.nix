@@ -50,6 +50,7 @@
               imports = with config.darwinModules; [
                 capslock-delay
                 touch-id
+                pf-redirect
               ];
             };
 
@@ -57,6 +58,23 @@
               imports = with config.homeModules; [
                 devenv
                 ghostty
+                ast-grep
+                bash
+                btop
+                bun
+                carapace
+                codesnap
+                devpod
+                direnv
+                fzf
+                git
+                lemonade
+                nodejs
+                starship
+                tldr
+                tmux
+                zoxide
+                zsh
               ];
             };
           };
