@@ -62,6 +62,13 @@
                 capslock-delay
                 touch-id
                 pf-redirect
+                ghostty
+              ];
+            };
+
+            nixosModules.default = {
+              imports = with config.nixosModules; [
+                ghostty
               ];
             };
 
