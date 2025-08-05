@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "kubernetes-sigs";
     repo = "gwctl";
-    rev = "main"; # You might want to pin to a specific version/commit
-    sha256 = "sha256-8xH3CJ2KI2bMmIEpGpxhsw0fxoTZ4vqu6+WQS8/SYuY="; # Add SHA after first attempt to build
+    rev = "cb0fc9bc4d070b146f0decae96ddbebb7af79f19"; # You might want to pin to a specific version/commit
+    sha256 = "sha256-EigblEwCcOM5/COd2Ttu5RfjW6ukBJTPE1kfQP3fJvk="; # Add SHA after first attempt to build
   };
 
   nativeBuildInputs = [
