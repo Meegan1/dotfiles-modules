@@ -9,7 +9,7 @@
     {
       programs.zsh = {
         enable = true;
-        dotDir = ".config/zsh";
+        dotDir = "${config.home.homeDirectory}/.config/zsh";
         shellAliases = {
           nix = "noglob nix";
           switch = lib.mkDefault "noglob sudo darwin-rebuild switch --flake ~/dotfiles#macos";
