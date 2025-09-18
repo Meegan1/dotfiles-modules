@@ -80,6 +80,16 @@ local function get_workspace_structure(workspace_ids)
 	return table.concat(workspace_ids, ",")
 end
 
+-- Run aerospace through /bin/bash -lc to load user's shell environment/PATH
+local function exec_aerospace(aero_args, callback)
+	local cmd = string.format("/bin/bash -lc %q", "aerospace " .. aero_args)
+	if callback then
+		sbar.exec(cmd, callback)
+	else
+		sbar.exec(cmd)
+	end
+end
+
 -- Fast appearance-only update using batched commands (no flicker)
 local function update_space_appearances(workspace_data_map, current_focused_workspace)
 	local batch_commands = {}
@@ -274,7 +284,7 @@ local function create_space_components(workspace_id)
 	-- Setup interaction
 	space_item:subscribe("mouse.clicked", function(env)
 		if env.BUTTON == "left" then
-			sbar.exec("aerospace workspace " .. workspace_id)
+			exec_aerospace("workspace " .. workspace_id)
 		end
 	end)
 
@@ -378,7 +388,7 @@ end
 local function handle_workspace_change(new_focused_workspace)
 	focused_workspace = new_focused_workspace
 
-	sbar.exec("aerospace list-workspaces --all --json", function(workspaces_data)
+	exec_aerospace("list-workspaces --all --json", function(workspaces_data)
 		smart_update_spaces(workspaces_data, new_focused_workspace)
 	end)
 end
@@ -401,7 +411,7 @@ local function initialize_spaces()
 	setup_workspace_observer()
 
 	-- Initial render - this will create the spaces first
-	sbar.exec("aerospace list-workspaces --all --json", function(workspaces_data)
+	exec_aerospace("list-workspaces --all --json", function(workspaces_data)
 		smart_update_spaces(workspaces_data, focused_workspace)
 	end)
 end
