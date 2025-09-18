@@ -1,0 +1,74 @@
+# create a modal keybinding to activate windowmode
+:: windowmode
+ctrl - s ; windowmode
+windowmode < escape ; default
+
+# space commands
+## create space modal
+:: spacemode
+alt - s ; spacemode
+spacemode < escape ; default
+
+cmd - h : skhd -k "escape"; aerospace focus --boundaries all-monitors-outer-frame left
+cmd - j : skhd -k "escape"; aerospace focus --boundaries all-monitors-outer-frame down
+cmd - k : skhd -k "escape"; aerospace focus --boundaries all-monitors-outer-frame up
+cmd - l : skhd -k "escape"; aerospace focus --boundaries all-monitors-outer-frame right
+
+cmd +  shift - h : skhd -k "escape"; aerospace swap left
+cmd +  shift - j : skhd -k "escape"; aerospace swap down
+cmd +  shift - k : skhd -k "escape"; aerospace swap up
+cmd +  shift - l : skhd -k "escape"; aerospace swap right
+
+# resize windows
+spacemode < h : aerospace resize width -20
+spacemode < j : aerospace resize height +20
+spacemode < k : aerospace resize height -20
+spacemode < l : aerospace resize width +20
+
+# toggle window float
+windowmode < t : skhd -k "escape"; aerospace layout tiling|floating
+
+# toggle window fullscreen
+windowmode < f : skhd -k "escape"; aerospace fullscreen
+
+# balance windows
+windowmode < b : skhd -k "escape"; aerospace balance-sizes
+
+cmd + shift - 1 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 1; aerospace space --focus 1; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 2 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 2; aerospace space --focus 2; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 3 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 3; aerospace space --focus 3; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 4 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 4; aerospace space --focus 4; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 5 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 5; aerospace space --focus 5; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 6 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 6; aerospace space --focus 6; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 7 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 7; aerospace space --focus 7; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 8 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 8; aerospace space --focus 8; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 9 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 9; aerospace space --focus 9; aerospace window --focus $window; sketchybar --trigger space_windows_change
+cmd + shift - 0 : window=$(aerospace list-windows --focused --json | jq '.[0]."window-id"'); aerospace move-node-to-workspace 10; aerospace space --focus 10; aerospace window --focus $window; sketchybar --trigger space_windows_change
+
+## Swap spaces
+spacemode < shift - h : skhd -k "escape"; aerospace swap left; sketchybar --trigger space_windows_change; sketchybar --trigger space_change
+spacemode < shift - l : skhd -k "escape"; aerospace swap right; sketchybar --trigger space_windows_change; sketchybar --trigger space_change
+
+## focus space #
+windowmode, spacemode < 1 : skhd -k "escape"; aerospace workspace 1
+windowmode, spacemode < 2 : skhd -k "escape"; aerospace workspace 2
+windowmode, spacemode < 3 : skhd -k "escape"; aerospace workspace 3
+windowmode, spacemode < 4 : skhd -k "escape"; aerospace workspace 4
+windowmode, spacemode < 5 : skhd -k "escape"; aerospace workspace 5
+windowmode, spacemode < 6 : skhd -k "escape"; aerospace workspace 6
+windowmode, spacemode < 7 : skhd -k "escape"; aerospace workspace 7
+windowmode, spacemode < 8 : skhd -k "escape"; aerospace workspace 8
+windowmode, spacemode < 9 : skhd -k "escape"; aerospace workspace 9
+windowmode, spacemode < 0 : skhd -k "escape"; aerospace workspace 10
+
+cmd - 1 : skhd -k "escape"; aerospace workspace 1
+cmd - 2 : skhd -k "escape"; aerospace workspace 2
+cmd - 3 : skhd -k "escape"; aerospace workspace 3
+cmd - 4 : skhd -k "escape"; aerospace workspace 4
+cmd - 5 : skhd -k "escape"; aerospace workspace 5
+cmd - 6 : skhd -k "escape"; aerospace workspace 6
+cmd - 7 : skhd -k "escape"; aerospace workspace 7
+cmd - 8 : skhd -k "escape"; aerospace workspace 8
+cmd - 9 : skhd -k "escape"; aerospace workspace 9
+cmd - 0 : skhd -k "escape"; aerospace workspace 10
+

@@ -7,26 +7,22 @@
     {
       system.defaults.NSGlobalDomain._HIHideMenuBar = true;
 
-      environment.systemPackages = [
-        (pkgs.callPackage ./packages/sbarlua.nix { })
-      ];
-
       fonts.packages = [
         (pkgs.callPackage ./packages/sketchybar-app-font.nix { })
       ];
-
-      services.sketchybar = {
-        enable = true;
-      };
     };
 
   homeModules.sketchybar =
     { pkgs, config, ... }:
     {
+      programs.sketchybar.enable = true;
+      programs.sketchybar.config = {
+        source = ./config;
+        recursive = true;
+      };
+      programs.sketchybar.configType = "lua";
+
       home.file = {
-        ".config/sketchybar" = {
-          source = ./config;
-        };
         ".local/share/sketchybar_lua/sketchybar.so" = {
           source = "${
             (pkgs.callPackage ./packages/sbarlua.nix { }).outPath

@@ -1,17 +1,25 @@
 {
-  darwinModules.skhd = {
+  homeModules.skhd = {
     services.skhd = {
       enable = true;
     };
   };
 
-  homeModules.skhd =
+  homeModules.yabai =
     { config, ... }:
     {
-      home.file = {
-        ".config/skhd/skhdrc" = {
-          source = ./config/skhdrc;
-        };
+      services.skhd = {
+        enable = true;
+        config = ./config/yabai/skhdrc;
+      };
+    };
+
+  homeModules.aerospace =
+    { config, ... }:
+    {
+      services.skhd = {
+        enable = true;
+        config = ./config/aerospace/skhdrc;
       };
     };
 }
