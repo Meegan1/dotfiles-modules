@@ -9,7 +9,10 @@
           inner.horizontal = 8;
           inner.vertical = 8;
 
-          outer.top = 5;
+          outer.top = [
+            { monitor."^built-in retina display$" = 5; }
+            45
+          ];
           outer.bottom = 10;
           outer.left = 5;
           outer.right = 5;
