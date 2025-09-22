@@ -17,6 +17,7 @@
           outer.left = 5;
           outer.right = 5;
         };
+
         on-window-detected = [
           {
             "if" = {
