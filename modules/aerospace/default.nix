@@ -32,14 +32,17 @@
         ];
 
         after-startup-command = [
-          "exec-and-forget sketchybar"
           "exec-and-forget skhd"
         ];
 
+        on-focus-changed = [
+          "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
+        ];
+
         exec-on-workspace-change = [
-          "/bin/bash"
+          "/bin/zsh"
           "-c"
-          "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+          "/usr/bin/osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'"
         ];
       };
     };
