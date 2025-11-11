@@ -26,7 +26,7 @@ spacemode < k : aerospace resize height -20
 spacemode < l : aerospace resize width +20
 
 # toggle window float
-windowmode < t : skhd -k "escape"; aerospace layout tiling|floating
+windowmode < t : skhd -k "escape"; aerospace layout tiling floating
 
 # toggle window fullscreen
 windowmode < f : skhd -k "escape"; aerospace fullscreen
