@@ -4,7 +4,7 @@
     {
       programs.aerospace.enable = true;
 
-      programs.aerospace.userSettings = {
+      programs.aerospace.settings = {
         gaps = {
           inner.horizontal = 8;
           inner.vertical = 8;

@@ -6,7 +6,7 @@
     }:
     {
       home.packages = with pkgs; [
-        ollama
+        # ollama
       ];
     };
 }

@@ -65,7 +65,7 @@
           pkgs.libevent
           pkgs.lua5_4
           pkgs.monaspace
-          pkgs.mysql-client
+          pkgs.mariadb.client
           pkgs.neovim
           pkgs.neovim-remote
           pkgs.ngrok
@@ -92,7 +92,6 @@
           pkgs.velero
           pkgs.watch
           pkgs.wget
-          pkgs.xmake
           pkgs.yq
         ];
 
