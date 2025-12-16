@@ -38,9 +38,16 @@
           # accept the current zsh-autosuggestions suggestion with Ctrl+Y
           bindkey '^Y' autosuggest-accept
 
+          autoload -U history-search-end
+          zle -N history-beginning-search-backward-end history-search-end
+          zle -N history-beginning-search-forward-end history-search-end
+
           # jump to previous history entry that begins with the current buffer (Ctrl+P)
-          bindkey '^P' history-beginning-search-backward
-          bindkey '^N' history-beginning-search-forward
+          bindkey '^P' history-beginning-search-backward-end
+          bindkey '^N' history-beginning-search-forward-end
+
+          # clear autosuggestion when using history search
+          ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-beginning-search-backward-end history-beginning-search-forward-end)
         '';
       };
     };
