@@ -66,8 +66,6 @@
           pkgs.lua5_4
           pkgs.monaspace
           pkgs.mariadb.client
-          pkgs.neovim
-          pkgs.neovim-remote
           pkgs.ngrok
           pkgs.ninja
           pkgs.nmap
