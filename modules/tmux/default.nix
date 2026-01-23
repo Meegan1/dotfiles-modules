@@ -49,6 +49,9 @@
           # Renumber windows when a window is closed
           set -g renumber-windows on
 
+          # Ensure when closing all windows in a session, if there are other sessions, tmux does not exit
+          set -g detach-on-destroy off
+
           # Bind hjkl to move between panes
           bind h if -F '#{pane_at_left}'   ''' 'select-pane -L'
           bind j if -F '#{pane_at_bottom}' ''' 'select-pane -D'
