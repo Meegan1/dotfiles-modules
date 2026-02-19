@@ -7,8 +7,6 @@
     {
       programs.tmux = {
         enable = true;
-        # Override with jixiuf fork to support kitty keys
-        package = (pkgs.callPackage ./packages/tmux.nix { });
         terminal = "tmux-256color";
         keyMode = "vi";
         plugins = with pkgs; [
@@ -37,8 +35,7 @@
           set -g mouse on
           # set -s copy-command 'xsel -i'
           set -g set-clipboard on
-          set -s kitty-keys always
-          set -as terminal-features '*:kitkeys:clipboard'
+          set -g extended-keys on
           set -g allow-passthrough on
 
           # Ensure escape time is 0 to avoid delay in key bindings

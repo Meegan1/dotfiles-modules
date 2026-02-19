@@ -27,7 +27,6 @@
           pkgs.awscli
           pkgs.awsebcli
           pkgs.antidote
-          pkgs.argocd
           pkgs.autoconf
           pkgs.automake
           pkgs.civo
