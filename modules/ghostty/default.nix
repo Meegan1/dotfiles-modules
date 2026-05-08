@@ -12,13 +12,13 @@
       ];
     };
 
-  darwinModules.ghostty = {
-    homebrew = {
-      casks = [
-        "ghostty"
+  darwinModules.ghostty =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        ghostty-bin
       ];
     };
-  };
 
   homeModules.ghostty =
     { config, ... }:

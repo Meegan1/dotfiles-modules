@@ -31,7 +31,7 @@ keybind = alt+three=text:#
 # Use the macos option key as the alt key
 macos-option-as-alt = true
 
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 
 font-family = "Monaspace Neon"
 font-size = 12
