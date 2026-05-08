@@ -10,6 +10,9 @@
     home-manager.url = "github:nix-community/home-manager";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    devenv.url = "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -37,9 +40,21 @@
 
         flake =
           { config, ... }:
+          let
+            moduleArgs = {
+              inherit inputs moduleWithSystem;
+            };
+
+            importModule =
+              dir:
+              let
+                mod = import (./modules + "/${dir}");
+              in
+              if builtins.isFunction mod then mod moduleArgs else mod;
+          in
           {
             # Import all ${dir}/default.nix in ./modules
-            imports = builtins.map (dir: ./modules + "/${dir}") (
+            imports = map importModule (
               builtins.filter (name: (builtins.readDir ./modules)."${name}" == "directory") (
                 builtins.attrNames (builtins.readDir ./modules)
               )

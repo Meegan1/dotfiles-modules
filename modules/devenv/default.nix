@@ -1,9 +1,11 @@
+{ moduleWithSystem, ... }:
 {
-  homeModules.devenv =
-    { pkgs, ... }:
+  homeModules.devenv = moduleWithSystem (
+    { inputs', ... }: # per-system args
+    { pkgs, ... }: # home-manager module args
     {
-      home.packages = with pkgs; [
-        devenv
+      home.packages = [
+        inputs'.devenv.packages.default
       ];
 
       home.file = {
@@ -23,5 +25,10 @@
           '';
         };
       };
-    };
+
+      programs.zsh.initContent = ''
+        eval "$(devenv hook zsh)"
+      '';
+    }
+  );
 }
