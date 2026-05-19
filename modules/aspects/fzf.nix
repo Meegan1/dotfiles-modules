@@ -1,5 +1,5 @@
 {
-  shared.fzf = {
+  dotfiles-modules.fzf = {
     homeManager = {
       programs.fzf = {
         enable = true;

@@ -1,5 +1,5 @@
 {
-  shared.ghostty = {
+  dotfiles-modules.ghostty = {
     nixos =
       {
         pkgs,

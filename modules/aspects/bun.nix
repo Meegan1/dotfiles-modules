@@ -1,5 +1,5 @@
 {
-  shared.bun = {
+  dotfiles-modules.bun = {
     homeManager =
       {
         config,

@@ -1,5 +1,5 @@
 {
-  shared.ollama = {
+  dotfiles-modules.ollama = {
     homeManager =
       {
         pkgs,

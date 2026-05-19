@@ -1,14 +1,19 @@
 # A module for configurations/modules not yet migrated to the new module system.
-{ self, inputs, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake-file.inputs = {
     nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = lib.mkDefault "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = lib.mkDefault "nixpkgs";
     };
   };
 
-  shared.legacy = {
+  dotfiles-modules.legacy = {
     darwin =
       {
         pkgs,
@@ -27,7 +32,7 @@
         # $ nix-env -qaP | grep wget
         environment.systemPackages = [
           pkgs.mkalias
-          pkgs.nixfmt-rfc-style
+          pkgs.nixfmt
 
           pkgs.nixd
 

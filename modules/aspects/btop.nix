@@ -1,5 +1,5 @@
 {
-  shared.btop = {
+  dotfiles-modules.btop = {
     homeManager = {
       programs.btop = {
         enable = true;

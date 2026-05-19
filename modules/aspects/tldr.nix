@@ -1,5 +1,5 @@
 {
-  shared.tldr = {
+  dotfiles-modules.tldr = {
     homeManager =
       { pkgs, ... }:
       {

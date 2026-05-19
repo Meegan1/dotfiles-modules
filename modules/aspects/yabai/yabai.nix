@@ -1,5 +1,5 @@
 {
-  shared.yabai = {
+  dotfiles-modules.yabai = {
     darwin = {
       services.yabai = {
         enable = true;

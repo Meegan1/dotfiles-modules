@@ -1,8 +1,6 @@
-{ inputs, config, ... }:
+{ inputs, ... }:
 {
   imports = [
-    (inputs.den.namespace "shared" false)
+    (inputs.den.namespace "dotfiles-modules" false)
   ];
-
-  config.flake.denful.dotfiles-modules = config.den.ful.shared;
 }

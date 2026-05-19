@@ -1,5 +1,5 @@
 {
-  shared.devpod = {
+  dotfiles-modules.devpod = {
     homeManager =
       {
         pkgs,

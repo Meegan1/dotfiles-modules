@@ -1,5 +1,5 @@
 {
-  shared.touch-id = {
+  dotfiles-modules.touch-id = {
     darwin = {
       security.pam.enableSudoTouchId = true;
     };

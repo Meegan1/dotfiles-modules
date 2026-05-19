@@ -1,5 +1,5 @@
 {
-  shared.carapace = {
+  dotfiles-modules.carapace = {
     homeManager = {
       programs.carapace = {
         enable = true;

@@ -1,5 +1,5 @@
 {
-  shared.texlive = {
+  dotfiles-modules.texlive = {
     homeManager =
       {
         pkgs,

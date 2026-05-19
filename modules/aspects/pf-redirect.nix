@@ -1,5 +1,5 @@
 {
-  shared.pf-redirect = {
+  dotfiles-modules.pf-redirect = {
     darwin =
       {
         config,

@@ -1,6 +1,6 @@
 {
   # https://github.com/gshpychka/dotfiles/blob/main/machines/eve/touch-id.nix
-  shared.touch-id = {
+  dotfiles-modules.touch-id = {
     darwin =
       {
         config,

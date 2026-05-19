@@ -1,5 +1,5 @@
 {
-  shared.zsh = {
+  dotfiles-modules.zsh = {
     homeManager =
       {
         config,

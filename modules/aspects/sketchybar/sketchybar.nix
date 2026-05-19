@@ -1,5 +1,5 @@
 {
-  shared.sketchybar = {
+  dotfiles-modules.sketchybar = {
     darwin =
       {
         pkgs,

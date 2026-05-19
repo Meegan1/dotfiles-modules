@@ -1,5 +1,5 @@
 {
-  shared.nodejs = {
+  dotfiles-modules.nodejs = {
     homeManager =
       {
         config,

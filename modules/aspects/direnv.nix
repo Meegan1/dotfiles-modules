@@ -1,5 +1,5 @@
 {
-  shared.direnv = {
+  dotfiles-modules.direnv = {
     homeManager = {
       programs.direnv = {
         enable = true;

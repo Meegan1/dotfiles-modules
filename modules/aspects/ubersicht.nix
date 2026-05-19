@@ -1,5 +1,5 @@
 {
-  shared.ubersicht = {
+  dotfiles-modules.ubersicht = {
     darwin = {
       homebrew = {
         casks = [

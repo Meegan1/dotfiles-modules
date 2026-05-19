@@ -1,5 +1,5 @@
 {
-  shared.zoxide = {
+  dotfiles-modules.zoxide = {
     homeManager = {
       programs.zoxide = {
         enable = true;

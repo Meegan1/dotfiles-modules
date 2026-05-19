@@ -1,5 +1,5 @@
 {
-  shared.yubikey = {
+  dotfiles-modules.yubikey = {
     # https://github.com/gshpychka/dotfiles/blob/main/machines/eve/touch-id.nix
     darwin =
       {

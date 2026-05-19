@@ -1,5 +1,5 @@
 {
-  shared.rust = {
+  dotfiles-modules.rust = {
     hostModules.rust =
       { pkgs, ... }:
       {

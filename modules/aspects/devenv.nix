@@ -1,16 +1,17 @@
+{ inputs, lib, ... }:
 {
 
   flake-file.inputs = {
-    devenv.url = "github:cachix/devenv";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
+    devenv.url = lib.mkDefault "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = lib.mkDefault "nixpkgs";
   };
 
-  shared.devenv = {
+  dotfiles-modules.devenv = {
     homeManager =
-      { inputs', pkgs, ... }: # home-manager module args
+      { pkgs, ... }: # home-manager module args
       {
         home.packages = [
-          inputs'.devenv.packages.default
+          inputs.devenv.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
 
         home.file = {

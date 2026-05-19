@@ -1,5 +1,5 @@
 {
-  shared.vscode = {
+  dotfiles-modules.vscode = {
     hostModules.vscode =
       { pkgs, ... }:
       {

@@ -1,5 +1,5 @@
 {
-  shared.nushell = {
+  dotfiles-modules.nushell = {
     homeManager = {
       programs.nushell = {
         enable = true;

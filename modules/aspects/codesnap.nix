@@ -1,5 +1,5 @@
 {
-  shared.codesnap = {
+  dotfiles-modules.codesnap = {
     homeManager =
       {
         pkgs,

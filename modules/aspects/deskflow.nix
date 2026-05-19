@@ -1,5 +1,5 @@
 {
-  shared.deskflow = {
+  dotfiles-modules.deskflow = {
     darwin = {
       homebrew = {
         taps = [

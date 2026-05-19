@@ -1,33 +1,32 @@
-{ shared, ... }:
+{ dotfiles-modules, ... }:
 {
-  shared.default = {
+  dotfiles-modules.default = {
     includes = [
-      shared.ghostty
-      shared.podman
-      shared.rust
-      shared.tmate
-      shared.legacy
-      shared.capslock-delay
-      shared.touch-id
-      shared.pf-redirect
-      shared.ast-grep
-      shared.bash
-      shared.btop
-      shared.bun
-      shared.carapace
-      shared.codesnap
-      shared.devenv
-      shared.devpod
-      shared.direnv
-      shared.fzf
-      shared.git
-      shared.lemonade
-      shared.nodejs
-      shared.starship
-      shared.tldr
-      shared.tmux
-      shared.zoxide
-      shared.zsh
+      dotfiles-modules.ghostty
+      dotfiles-modules.podman
+      dotfiles-modules.tmate
+      dotfiles-modules.legacy
+      dotfiles-modules.capslock-delay
+      dotfiles-modules.touch-id
+      dotfiles-modules.pf-redirect
+      dotfiles-modules.ast-grep
+      dotfiles-modules.bash
+      dotfiles-modules.btop
+      dotfiles-modules.bun
+      dotfiles-modules.carapace
+      dotfiles-modules.codesnap
+      dotfiles-modules.devenv
+      dotfiles-modules.devpod
+      dotfiles-modules.direnv
+      dotfiles-modules.fzf
+      dotfiles-modules.git
+      dotfiles-modules.lemonade
+      dotfiles-modules.nodejs
+      dotfiles-modules.starship
+      dotfiles-modules.tldr
+      dotfiles-modules.tmux
+      dotfiles-modules.zoxide
+      dotfiles-modules.zsh
     ];
   };
 }

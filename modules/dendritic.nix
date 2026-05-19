@@ -1,23 +1,11 @@
-{ inputs, lib, ... }:
+{ lib, ... }:
 {
-  imports = [
-    (inputs.flake-file.flakeModules.dendritic or { })
-    (inputs.den.flakeModules.dendritic or { })
-  ];
-
-  # other inputs may be defined at a module using them.
   flake-file.inputs = {
-    den.url = "github:denful/den";
-    flake-file.url = "github:denful/flake-file";
+    den.url = lib.mkDefault "github:denful/den";
+    flake-file.url = lib.mkDefault "github:denful/flake-file";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = lib.mkDefault "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = lib.mkDefault "nixpkgs";
     };
-  };
-
-  flake.flakeModules.dendritic = {
-    imports = builtins.filter (p: lib.hasSuffix ".nix" p && !lib.hasInfix "/_" p) (
-      lib.filesystem.listFilesRecursive ./_batteries
-    );
   };
 }

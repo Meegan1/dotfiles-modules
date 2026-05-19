@@ -1,5 +1,5 @@
 {
-  shared.lemonade = {
+  dotfiles-modules.lemonade = {
     homeManager =
       {
         pkgs,

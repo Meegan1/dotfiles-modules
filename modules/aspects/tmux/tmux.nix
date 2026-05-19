@@ -1,5 +1,5 @@
 {
-  shared.tmux = {
+  dotfiles-modules.tmux = {
     homeManager =
       {
         pkgs,

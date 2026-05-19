@@ -1,5 +1,5 @@
 {
-  shared.tmate = {
+  dotfiles-modules.tmate = {
     hostModules.tmate =
       {
         pkgs,

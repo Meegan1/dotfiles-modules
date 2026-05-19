@@ -1,5 +1,5 @@
 {
-  shared.ast-grep = {
+  dotfiles-modules.ast-grep = {
     homeManager =
       {
         pkgs,

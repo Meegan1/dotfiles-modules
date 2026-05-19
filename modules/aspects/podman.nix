@@ -1,5 +1,5 @@
 {
-  shared.podman = {
+  dotfiles-modules.podman = {
     hostModules.podman =
       { pkgs, ... }:
       {

@@ -19,9 +19,9 @@ let
           determinateNix.enable = true;
         }
       else
-        throw "den: determinate-nix battery requires inputs.determinate in your flake";
+        throw "den: determinate-nix aspect requires inputs.determinate in your flake";
   };
 in
 {
-  den.batteries.determinate = determinate;
+  dotfiles-modules.determinate = determinate;
 }

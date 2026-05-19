@@ -1,5 +1,5 @@
 {
-  shared.capslock-delay = {
+  dotfiles-modules.capslock-delay = {
     darwin =
       {
         config,

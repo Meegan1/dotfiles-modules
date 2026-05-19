@@ -1,5 +1,5 @@
 {
-  shared.aerospace = {
+  dotfiles-modules.aerospace = {
     homeManager = {
       programs.aerospace.enable = true;
 
