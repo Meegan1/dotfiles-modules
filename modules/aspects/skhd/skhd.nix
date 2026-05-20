@@ -1,21 +1,22 @@
+{ dotfiles-modules, ... }:
 {
-  dotfiles-modules.skhd = {
-    homeManager = {
-      services.skhd = {
-        enable = true;
-      };
-    };
+  dotfiles-modules.skhd =
+    { user, ... }:
+    {
+      homeManager =
+        { lib, ... }:
+        lib.mkMerge [
+          {
+            services.skhd.enable = true;
+          }
 
-    provides.yabai.homeManager = {
-      services.skhd = {
-        config = ./config/yabai/skhdrc;
-      };
-    };
+          (lib.mkIf (user.hasAspect dotfiles-modules.yabai) {
+            services.skhd.config = ./config/yabai/skhdrc;
+          })
 
-    provides.aerospace.homeManager = {
-      services.skhd = {
-        config = ./config/aerospace/skhdrc;
-      };
+          (lib.mkIf (user.hasAspect dotfiles-modules.aerospace) {
+            services.skhd.config = ./config/aerospace/skhdrc;
+          })
+        ];
     };
-  };
 }
