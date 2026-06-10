@@ -6,6 +6,7 @@
 
   den.default.includes = [
     den.batteries.inputs'
+    den.batteries.define-user
   ];
 
   # enable hm by default
