@@ -26,13 +26,11 @@
       {
         programs.mpv = {
           enable = true;
-          package = (
-            pkgs.mpv.override {
-              scripts = with pkgs.mpvScripts; [
-                modernz
-              ];
-            }
-          );
+          package = (pkgs.mpv);
+
+          scripts = with pkgs.mpvScripts; [
+            # modernz
+          ];
 
           config = {
             profile = "high-quality";
@@ -42,6 +40,10 @@
 
         home.file.".config/mpv/scripts/strm.lua" = {
           text = strm-script;
+        };
+
+        home.file.".config/mpv/scripts/smart-copy-paste.lua" = {
+          source = ./smart-copy-paste.lua;
         };
 
       };
