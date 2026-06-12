@@ -4,10 +4,11 @@
     { user, ... }:
     {
       homeManager =
-        { lib, ... }:
+        { lib, pkgs, ... }:
         lib.mkMerge [
           {
             services.skhd.enable = true;
+            services.skhd.package = pkgs.callPackage ./_package.nix { };
           }
 
           (lib.mkIf (user.hasAspect dotfiles-modules.yabai) {
