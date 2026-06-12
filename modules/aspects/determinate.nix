@@ -20,6 +20,15 @@ let
         }
       else
         throw "den: determinate-nix aspect requires inputs.determinate in your flake";
+
+    homeManager =
+      if inputs ? determinate then
+        {
+          imports = [ inputs.determinate.homeManagerModules.default ];
+
+        }
+      else
+        throw "den: determinate-nix aspect requires inputs.determinate in your flake";
   };
 in
 {
