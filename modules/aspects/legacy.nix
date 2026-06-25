@@ -3,6 +3,7 @@
   self,
   inputs,
   lib,
+  dotfiles-modules,
   ...
 }:
 {
@@ -16,6 +17,7 @@
   dotfiles-modules.legacy = {
     darwin =
       {
+        host,
         pkgs,
         config,
         ...
@@ -140,6 +142,18 @@
           "root"
           "${config.system.primaryUser}"
         ];
+
+        determinateNix = (
+          lib.mkIf (host.hasAspect dotfiles-modules.determinate) {
+            customSettings = {
+
+              trusted-users = [
+                "root"
+                "${config.system.primaryUser}"
+              ];
+            };
+          }
+        );
 
         environment.variables.EDITOR = "nvim";
 
