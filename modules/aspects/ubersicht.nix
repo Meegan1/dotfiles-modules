@@ -19,8 +19,8 @@
           source = pkgs.fetchFromGitHub {
             owner = "Jean-Tinland";
             repo = "simple-bar";
-            rev = "7673cbbc56973748897bcae15afc135865694351";
-            sha256 = "sha256-8MpANF0m/c8Z2btgArn1pavxoP2qdkKX4dD9l3nDFa8=";
+            rev = "57028cda3495b89c094aead1867d2e65f6c3cf50";
+            sha256 = "sha256-PZavkYj5xA0H03oSGhxBVChOk7lMjqSAhoJgZd8D3tM=";
           };
         };
         home.file.".simplebarrc" = {
