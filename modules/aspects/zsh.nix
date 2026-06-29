@@ -20,6 +20,8 @@
           antidote = {
             enable = true;
             plugins = [
+              "belak/zsh-utils path:completion"
+
               "zsh-users/zsh-syntax-highlighting"
               "zsh-users/zsh-autosuggestions"
 
@@ -29,7 +31,6 @@
               "ohmyzsh/ohmyzsh path:plugins/command-not-found"
               "ohmyzsh/ohmyzsh path:plugins/kubectl"
               "ohmyzsh/ohmyzsh path:plugins/colorize"
-              "belak/zsh-utils path:completion"
             ];
           };
 
