@@ -225,7 +225,6 @@
           SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
           # Stop teleport from adding keys to the agent
           TELEPORT_ADD_KEYS_TO_AGENT = "no";
-          XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
         };
 
       };

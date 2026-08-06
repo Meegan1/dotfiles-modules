@@ -9,6 +9,10 @@
     den.batteries.define-user
   ];
 
+  den.default.homeManager = {
+    xdg.enable = true;
+  };
+
   # enable hm by default
   den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 }
