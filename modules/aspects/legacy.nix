@@ -72,7 +72,6 @@
           pkgs.hubble
           pkgs.imagemagick.dev
           pkgs.jq
-          pkgs.k9s
           pkgs.kind
           pkgs.kubeaudit
           pkgs.kubectl
