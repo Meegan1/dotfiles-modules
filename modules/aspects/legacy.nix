@@ -73,9 +73,6 @@
           pkgs.imagemagick.dev
           pkgs.jq
           pkgs.kind
-          pkgs.kubeaudit
-          pkgs.kubectl
-          pkgs.kustomize
           pkgs.lazygit
           pkgs.lemonade
           pkgs.libevent
