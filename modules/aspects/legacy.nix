@@ -104,6 +104,8 @@
           pkgs.watch
           pkgs.wget
           pkgs.yq
+          pkgs.orbstack
+          pkgs.sioyek
         ];
 
         system.defaults = {
@@ -180,10 +182,8 @@
           casks = [
             "devpod"
             "linearmouse"
-            "orbstack"
             "syntax-highlight"
             "font-monaspace"
-            "sioyek"
           ];
 
           # Declarative tap management
