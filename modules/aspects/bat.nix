@@ -1,6 +1,6 @@
 {
   dotfiles-modules.bat = {
-    homeModules = {
+    homeManager = {
       programs.bat = {
         enable = true;
       };
