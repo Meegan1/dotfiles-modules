@@ -53,7 +53,6 @@
           pkgs.devcontainer
           pkgs.devpod
           pkgs.gh
-          pkgs.bat
           pkgs.php83Packages.composer
           pkgs.curl
           pkgs.doctl
