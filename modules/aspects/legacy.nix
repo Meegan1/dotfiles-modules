@@ -65,7 +65,10 @@
           pkgs.gnupg
           pkgs.gnutls
           pkgs.go
-          pkgs.google-cloud-sdk
+          pkgs.google-cloud-sdk.withExtraComponents
+          (with pkgs.google-cloud-sdk.components; [
+            gke-gcloud-auth-plugin
+          ])
           pkgs.kubernetes-helm
           pkgs.helmfile
           pkgs.hubble
