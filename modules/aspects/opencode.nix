@@ -1,10 +1,14 @@
+{ dotfiles-modules, ... }:
 {
   dotfiles-modules.opencode = {
-    homeManager =
-      {
-        programs.opencode = {
-          enable = true;
-        };
+    includes = [
+      dotfiles-modules.playwright-cli
+    ];
+
+    homeManager = {
+      programs.opencode = {
+        enable = true;
       };
+    };
   };
 }
