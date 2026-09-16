@@ -14,6 +14,12 @@
           eval "$(git wt --init zsh)"
         ''
       );
+
+      programs.git.settings = {
+        wt = {
+          basedir = "../";
+        };
+      };
     };
   };
 }
