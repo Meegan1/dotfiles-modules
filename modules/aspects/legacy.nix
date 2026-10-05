@@ -8,10 +8,7 @@
 }:
 {
   flake-file.inputs = {
-    nix-homebrew = {
-      url = lib.mkDefault "github:zhaofengli-wip/nix-homebrew";
-      inputs.nixpkgs.follows = lib.mkDefault "nixpkgs";
-    };
+    nix-homebrew.url = lib.mkDefault "github:zhaofengli-wip/nix-homebrew";
   };
 
   dotfiles-modules.legacy = {

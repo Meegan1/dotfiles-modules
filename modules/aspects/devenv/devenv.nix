@@ -1,12 +1,26 @@
 { inputs, lib, ... }:
 {
 
-  flake-file.inputs = {
-    devenv.url = lib.mkDefault "github:cachix/devenv";
-    devenv.inputs.nixpkgs.follows = lib.mkDefault "nixpkgs";
-  };
+  # Do NOT override devenv's nixpkgs: devenv's CI builds its packages against
+  # its own lockfile and pushes them to devenv.cachix.org. Following our
+  # nixpkgs produces drv hashes that exist nowhere and get rebuilt from source.
+  flake-file.inputs.devenv.url = lib.mkDefault "github:cachix/devenv";
 
   dotfiles-modules.devenv = {
+    nixos = {
+      nix.settings = {
+        extra-substituters = [ "https://devenv.cachix.org" ];
+        extra-trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+      };
+    };
+
+    darwin = {
+      nix.settings = {
+        extra-substituters = [ "https://devenv.cachix.org" ];
+        extra-trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+      };
+    };
+
     homeManager =
       { pkgs, ... }: # home-manager module args
       {
