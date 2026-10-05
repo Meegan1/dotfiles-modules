@@ -7,7 +7,18 @@
       }:
       {
         home.packages = with pkgs; [
-          element-desktop
+          (
+            if stdenv.hostPlatform.isLinux then
+              element-desktop.overrideAttrs (old: {
+                nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ makeWrapper ];
+                postInstall = (old.postInstall or "") + ''
+                  wrapProgram $out/bin/element-desktop \
+                    --add-flags "--password-store=gnome-libsecret"
+                '';
+              })
+            else
+              element-desktop
+          )
         ];
       };
   };
