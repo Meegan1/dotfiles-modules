@@ -1,17 +1,16 @@
 # A module for configurations/modules not yet migrated to the new module system.
 {
   self,
-  inputs,
   lib,
   dotfiles-modules,
   ...
 }:
 {
-  flake-file.inputs = {
-    nix-homebrew.url = lib.mkDefault "github:zhaofengli-wip/nix-homebrew";
-  };
-
   dotfiles-modules.legacy = {
+    includes = [
+      dotfiles-modules.nix-homebrew
+    ];
+
     darwin =
       {
         host,
@@ -20,9 +19,6 @@
         ...
       }:
       {
-        imports = [
-          inputs.nix-homebrew.darwinModules.nix-homebrew
-        ];
 
         # Allow unfree packages.
         nixpkgs.config.allowUnfree = true;
@@ -169,29 +165,13 @@
           };
         };
 
-        # Homebrew
-        nix-homebrew = {
-          # Install Homebrew under the default prefix
-          enable = true;
-          # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-          enableRosetta = true;
-          user = config.system.primaryUser;
-        };
-
         homebrew = {
-          enable = true;
           casks = [
             "devpod"
             "linearmouse"
             "syntax-highlight"
             "font-monaspace"
           ];
-
-          # Declarative tap management
-          taps = [ ];
-
-          onActivation.autoUpdate = true;
-          onActivation.upgrade = true;
         };
       };
 
@@ -211,7 +191,6 @@
         home.sessionPath = [
           "${config.home.homeDirectory}/.bin" # Add a custom bin directory
           "${config.home.homeDirectory}/.local/bin" # Add a custom bin directory
-          "/opt/homebrew/bin"
         ];
 
         home.sessionVariables = {
