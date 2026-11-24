@@ -20,11 +20,8 @@
       };
 
     homeManager = {
-
       home.file = {
-        ".config/ghostty" = {
-          source = ./config;
-        };
+        ".config/ghostty/config".text = builtins.readFile ./config/config;
       };
     };
   };
